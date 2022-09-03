@@ -25,7 +25,7 @@ class Routes extends Component {
           </Fragment>
         ) : (
           <Switch>
-            <Route path='/' exact component={ Login } />
+            <Route path='/' component={Login} exact />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
           </Switch>
