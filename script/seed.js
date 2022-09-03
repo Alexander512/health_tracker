@@ -1,6 +1,6 @@
 'use strict'
 
-const {db, models: {User} } = require('../server/db')
+const {db, models: {User, Measure, Measurement} } = require('../server/db')
 
 /**
  * seed - this function clears the database, updates tables to
@@ -12,8 +12,47 @@ async function seed() {
 
   // Creating Users
   const users = await Promise.all([
-    User.create({ username: 'alexander', firstName: 'Alexander', lastName: 'Stoisolovich', password: '123' }),
+    User.create({ username: 'alexander', firstName: 'Alexander', lastName: 'Stoisolovich', password: '123' })
   ])
+
+  // Creating Measures
+  const measures = await Promise.all([
+    Measure.create({ name: 'heart rate', unit: 'bpm', lowerLimit: 60, upperLimit: 100, userId: users[0].id })
+  ]);
+
+  // Creating Measurements
+  const measurements = await Promise.all([
+    Measurement.create({ value: 68, measureId: measures[0].id }),
+    Measurement.create({ value: 67, measureId: measures[0].id }),
+    Measurement.create({ value: 68, measureId: measures[0].id }),
+    Measurement.create({ value: 71, measureId: measures[0].id }),
+    Measurement.create({ value: 70, measureId: measures[0].id }),
+    Measurement.create({ value: 74, measureId: measures[0].id }),
+    Measurement.create({ value: 70, measureId: measures[0].id }),
+    Measurement.create({ value: 70, measureId: measures[0].id }),
+    Measurement.create({ value: 66, measureId: measures[0].id }),
+    Measurement.create({ value: 77, measureId: measures[0].id }),
+    Measurement.create({ value: 76, measureId: measures[0].id }),
+    Measurement.create({ value: 69, measureId: measures[0].id }),
+    Measurement.create({ value: 75, measureId: measures[0].id }),
+    Measurement.create({ value: 69, measureId: measures[0].id }),
+    Measurement.create({ value: 67, measureId: measures[0].id }),
+    Measurement.create({ value: 74, measureId: measures[0].id }),
+    Measurement.create({ value: 66, measureId: measures[0].id }),
+    Measurement.create({ value: 68, measureId: measures[0].id }),
+    Measurement.create({ value: 69, measureId: measures[0].id }),
+    Measurement.create({ value: 70, measureId: measures[0].id }),
+    Measurement.create({ value: 66, measureId: measures[0].id }),
+    Measurement.create({ value: 64, measureId: measures[0].id }),
+    Measurement.create({ value: 67, measureId: measures[0].id }),
+    Measurement.create({ value: 67, measureId: measures[0].id }),
+    Measurement.create({ value: 71, measureId: measures[0].id }),
+    Measurement.create({ value: 62, measureId: measures[0].id }),
+    Measurement.create({ value: 69, measureId: measures[0].id }),
+    Measurement.create({ value: 73, measureId: measures[0].id }),
+    Measurement.create({ value: 67, measureId: measures[0].id }),
+    Measurement.create({ value: 66, measureId: measures[0].id })
+  ]);
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
