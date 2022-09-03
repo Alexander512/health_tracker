@@ -4,6 +4,9 @@ const morgan = require('morgan')
 const app = express()
 module.exports = app
 
+// Set spacing for JSON data
+app.set('json spaces', 2)
+
 // logging middleware
 app.use(morgan('dev'))
 
