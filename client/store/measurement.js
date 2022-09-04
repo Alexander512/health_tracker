@@ -26,9 +26,9 @@ const _createMeasurement = (measurement) => {
 /**
  * THUNK CREATORS
  */
-export const getMeasurements = (id) => {
+export const getMeasurements = () => {
   return async (dispatch) => {
-    const response = await axios.get(`/api/measurements/${id}`);
+    const response = await axios.get('/api/measurements');
     const measurements = response.data;
     dispatch(_getMeasurements(measurements));
   };
