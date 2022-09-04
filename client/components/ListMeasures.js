@@ -12,13 +12,14 @@ class ListMeasures extends Component {
     this.props.getMeasures();
   }
   render() {
-    const { measures } = this.props;
+    const { auth, measures } = this.props;
+    const filteredMeasures = measures.filter((measure) => measure.userId === auth.id);
     return (
       <Fragment>
         <h1>Measurements:</h1>
         <ul>
           {
-            measures.map((measure) => {
+            filteredMeasures.map((measure) => {
               return (
                 <li key={measure.id}>
                   <strong>Measure:</strong> <Link to={`/measurements/${measure.id}`}>{measure.name}</Link>
@@ -35,6 +36,7 @@ class ListMeasures extends Component {
 
 const mapStateToProps = (state) => {
   return { 
+    auth: state.auth,
     measures: state.measures
   };
 };
