@@ -32,8 +32,8 @@ export const getMeasures = () => {
 export default function(state = [], action) {
   switch (action.type) {
     case GET_MEASURES:
-      return action.measures
+      return action.measures;
     default:
-      return state
+      return state;
   }
 }

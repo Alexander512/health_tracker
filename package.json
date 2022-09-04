@@ -21,7 +21,10 @@
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "pg": "^8.8.0",
-    "sequelize": "^6.21.4"
+    "react-vega": "^7.6.0",
+    "sequelize": "^6.21.4",
+    "vega": "^5.22.1",
+    "vega-lite": "^5.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.13",
