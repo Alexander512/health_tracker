@@ -11,14 +11,13 @@ async function seed() {
   console.log('db synced!')
 
   // Creating Users
-  const users = await Promise.all([
-    User.create({ username: 'alexander', firstName: 'Alexander', lastName: 'Stoisolovich', password: '123' })
-  ])
+  const user1 = await User.create({ username: 'alexander', firstName: 'Alexander', lastName: 'Stoisolovich', password: '123' })
+  const user2 = await User.create({ username: 'jim', firstName: 'Jim', lastName: 'Smith', password: '123' })
 
   // Creating Measures
   const measures = await Promise.all([
-    Measure.create({ name: 'heart rate', unit: 'bpm', lowerLimit: 60, upperLimit: 100, userId: users[0].id }),
-    Measure.create({ name: 'test', unit: 'test', userId: users[0].id })
+    Measure.create({ name: 'heart rate', unit: 'bpm', lowerLimit: 60, upperLimit: 100, userId: user1.id }),
+    Measure.create({ name: 'test', unit: 'test', userId: user2.id })
   ]);
 
   // Creating Measurements
@@ -55,14 +54,6 @@ async function seed() {
     Measurement.create({ value: 66, measureId: measures[0].id })
   ]);
 
-  console.log(`seeded ${users.length} users`)
-  console.log(`seeded successfully`)
-  return {
-    users: {
-      cody: users[0],
-      murphy: users[1]
-    }
-  }
 }
 
 /*
