@@ -17,7 +17,8 @@ async function seed() {
 
   // Creating Measures
   const measures = await Promise.all([
-    Measure.create({ name: 'heart rate', unit: 'bpm', lowerLimit: 60, upperLimit: 100, userId: users[0].id })
+    Measure.create({ name: 'heart rate', unit: 'bpm', lowerLimit: 60, upperLimit: 100, userId: users[0].id }),
+    Measure.create({ name: 'test', unit: 'test', userId: users[0].id })
   ]);
 
   // Creating Measurements

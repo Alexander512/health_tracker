@@ -14,12 +14,7 @@ class Measurements extends Component {
   }
   componentDidMount() {
     this.props.getMeasures();
-  }
-  componentDidUpdate(prevProps) {
-    if (this.props.measurements.length === 0 && this.props.measure.id) {
-      const { measure } = this.props;
-      this.props.getMeasurements(measure.id);
-    }
+    this.props.getMeasurements();
   }
   handleChange(event) {
     const change = {};
@@ -33,7 +28,7 @@ class Measurements extends Component {
     this.props.createMeasurement({ value: measurementValue, measureId: measure.id });
   }
   render() {
-    const { measurements } = this.props;
+    const { filteredMeasurements } = this.props;
     const { measurementValue } = this.state;
     const { handleChange, handleSubmit } = this;
     return (
@@ -44,7 +39,7 @@ class Measurements extends Component {
           <input name='measurementValue' type='number' value={measurementValue} onChange={handleChange} />
           <button>Submit</button>
         </form>
-        <TimeSeriesVis measurements={measurements} />
+        <TimeSeriesVis measurements={filteredMeasurements} />
       </Fragment>
     );
   }
@@ -53,9 +48,10 @@ class Measurements extends Component {
 const mapStateToProps = ({ measures, measurements}, otherParams) => {
   const id = otherParams.match.params.id;
   const measure = measures.find((measure) => measure.id === Number(id)) || {};
+  const filteredMeasurements = measurements.filter((measurement) => measurement.measureId === Number(id)) || [];
   return {
     measure,
-    measurements
+    filteredMeasurements
   };
 };
 
