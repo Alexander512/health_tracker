@@ -21,7 +21,7 @@ class ListMeasures extends Component {
             measures.map((measure) => {
               return (
                 <li key={measure.id}>
-                  <strong>Measure:</strong> <Link to=''>{measure.name}</Link>
+                  <strong>Measure:</strong> <Link to={`/measurements/${measure.id}`}>{measure.name}</Link>
                   <strong>Unit:</strong> {measure.unit}
                 </li>
               );
