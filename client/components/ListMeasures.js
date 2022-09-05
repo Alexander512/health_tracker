@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getMeasures } from '../store';
+import { getMeasures, deleteMeasure } from '../store';
 
 class ListMeasures extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class ListMeasures extends Component {
     this.props.getMeasures();
   }
   render() {
-    const { auth, measures } = this.props;
+    const { auth, measures, deleteMeasure } = this.props;
     const filteredMeasures = measures.filter((measure) => measure.userId === auth.id);
     return (
       <Fragment>
@@ -24,6 +24,7 @@ class ListMeasures extends Component {
                 <li key={measure.id}>
                   <strong>Measure:</strong> <Link to={`/measurements/${measure.id}`}>{measure.name}</Link>
                   <strong>Unit:</strong> {measure.unit}
+                  <button onClick={() => deleteMeasure(measure.id)}>Delete</button>
                 </li>
               );
             })
@@ -45,6 +46,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getMeasures: () => {
       dispatch(getMeasures());
+    },
+    deleteMeasure: (id) => {
+      dispatch(deleteMeasure(id));
     }
   };
 };
