@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {withRouter, Route, Switch, Redirect} from 'react-router-dom';
 import { Login, Signup } from './components/AuthForm';
 import ListMeasures from './components/ListMeasures.js';
+import CreateMeasure from './components/CreateMeasure.js';
 import Measurements from './components/Measurements.js';
 import {me} from './store';
 
@@ -19,9 +20,10 @@ class Routes extends Component {
       <div>
         {isLoggedIn ? (
           <Fragment>
-            <Route path='/measures' component={ListMeasures} />
-            <Route path='/measurements/:id' component={Measurements} />
-            <Redirect to='/measures' />
+            <Route path='/measures' component={ListMeasures} exact />
+            <Route path='/measures/new' component={CreateMeasure} exact />
+            <Route path='/measurements/:id' component={Measurements} exact />
+            <Redirect to='/measures' exact />
           </Fragment>
         ) : (
           <Switch>
