@@ -55,9 +55,21 @@ class EditMeasure extends Component {
     const { name, unit, lowerLimit, intermediateLimit, upperLimit } = this.state;
     measure.name = name; 
     measure.unit = unit; 
-    measure.lowerLimit = lowerLimit;
-    measure.intermediateLimit = intermediateLimit;
-    measure.upperLimit = upperLimit;
+    if (lowerLimit === '') {
+      measure.lowerLimit = null;
+    } else {
+      measure.lowerLimit = lowerLimit;
+    }
+    if (intermediateLimit === '') {
+      measure.intermediateLimit = null;
+    } else {
+      measure.intermediateLimit = intermediateLimit;
+    }
+    if (upperLimit === '') {
+      measure.upperLimit = null;
+    } else {
+      measure.upperLimit = upperLimit;
+    }
     this.props.updateMeasure(measure);
   }
   render() {
@@ -68,9 +80,9 @@ class EditMeasure extends Component {
         <h1>Update a biometric measurement:</h1>
         <form onSubmit={handleSubmit}>
           <label htmlFor='name'>Measurement name: </label><br />
-          <input name='name' type='text' value={name} onChange={handleChange} /><br />
+          <input name='name' type='text' value={name} onChange={handleChange} required /><br />
           <label htmlFor='unit'>Measurement units: </label><br />
-          <input name='unit' type='text' value={unit} onChange={handleChange} /><br />
+          <input name='unit' type='text' value={unit} onChange={handleChange} required /><br />
           <label htmlFor='upperLimit'>Upper limit: </label><br />
           <input name='upperLimit' type='number' value={upperLimit} onChange={handleChange} /><br />
           <label htmlFor='intermediateLimit'>Intermediate limit: </label><br />
