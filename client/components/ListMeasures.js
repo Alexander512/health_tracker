@@ -24,6 +24,7 @@ class ListMeasures extends Component {
                 <li key={measure.id}>
                   <strong>Measure:</strong> <Link to={`/measurements/${measure.id}`}>{measure.name}</Link>
                   <strong>Unit:</strong> {measure.unit}
+                  <Link to={`/measures/${measure.id}/edit`}>Edit</Link>
                   <button onClick={() => deleteMeasure(measure.id)}>Delete</button>
                 </li>
               );

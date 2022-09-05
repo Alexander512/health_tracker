@@ -32,6 +32,17 @@ router.post('/', async (req, res, next) => {
   }
 });
 
+/* PUT a measure - update */
+router.put('/:id', async (req, res, next) => {
+  try {
+    const measure = await Measure.findByPk(req.params.id);
+    await measure.update(req.body);
+    res.json(measure);
+  } catch(err) {
+    next(err);
+  }
+});
+
 /* DELETE a measure */
 router.delete('/:id', async (req, res, next) => {
   try {
