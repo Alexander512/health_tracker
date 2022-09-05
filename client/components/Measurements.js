@@ -26,6 +26,7 @@ class Measurements extends Component {
     const { measure } = this.props;
     const { measurementValue } = this.state;
     this.props.createMeasurement({ value: measurementValue, measureId: measure.id });
+    this.setState({ measurementValue: '' });
   }
   render() {
     const { filteredMeasurements } = this.props;

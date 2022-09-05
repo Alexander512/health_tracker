@@ -11,7 +11,7 @@ Measure.belongsTo(User)
 User.hasMany(Measure)
 
 Measurement.belongsTo(Measure)
-Measure.hasMany(Measurement)
+Measure.hasMany(Measurement, { onDelete: 'CASCADE', hooks: true })
 
 module.exports = {
   db,
