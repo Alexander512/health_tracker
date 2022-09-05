@@ -17,22 +17,13 @@ const Measure= db.define('measure', {
     }
   },
   lowerLimit: {
-    type: Sequelize.FLOAT,
-    validate: {
-      isFloat: true
-    }
+    type: Sequelize.FLOAT
   },
   intermediateLimit: {
-    type: Sequelize.FLOAT,
-    validate: {
-      isFloat: true
-    }
+    type: Sequelize.FLOAT
   },
   upperLimit: {
-    type: Sequelize.FLOAT,
-    validate: {
-      isFloat: true
-    }
+    type: Sequelize.FLOAT
   }
 });
 

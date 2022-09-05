@@ -36,7 +36,7 @@ class Measurements extends Component {
         <h1>Measurements:</h1>
         <form onSubmit={handleSubmit}>
           <label htmlFor='measurementValue'>Enter measurement: </label>
-          <input name='measurementValue' type='number' value={measurementValue} onChange={handleChange} />
+          <input name='measurementValue' type='number' value={measurementValue} onChange={handleChange} required />
           <button>Submit</button>
         </form>
         <TimeSeriesVis measurements={filteredMeasurements} />

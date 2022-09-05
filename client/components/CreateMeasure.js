@@ -23,7 +23,10 @@ class CreateMeasure extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const { auth } = this.props;
-    const { name, unit, lowerLimit, intermediateLimit, upperLimit } = this.state;
+    let { name, unit, lowerLimit, intermediateLimit, upperLimit } = this.state;
+    if (lowerLimit === '') lowerLimit = null;
+    if (intermediateLimit === '') intermediateLimit = null;
+    if (upperLimit === '') upperLimit = null;
     this.props.createMeasure({ 
       name: name,
       unit: unit,
@@ -48,9 +51,9 @@ class CreateMeasure extends Component {
         <h1>Create new biometric measurement:</h1>
         <form onSubmit={handleSubmit}>
           <label htmlFor='name'>Measurement name: </label><br />
-          <input name='name' type='text' value={name} onChange={handleChange} /><br />
+          <input name='name' type='text' value={name} onChange={handleChange} required /><br />
           <label htmlFor='unit'>Measurement units: </label><br />
-          <input name='unit' type='text' value={unit} onChange={handleChange} /><br />
+          <input name='unit' type='text' value={unit} onChange={handleChange} required /><br />
           <label htmlFor='upperLimit'>Add an upper limit: </label><br />
           <input name='upperLimit' type='number' value={upperLimit} onChange={handleChange} /><br />
           <label htmlFor='intermediateLimit'>Add an intermediate limit: </label><br />
