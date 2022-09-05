@@ -21,3 +21,13 @@ router.get('/:id', async (req, res, next) => {
     next(err);
   }
 });
+
+/* POST a new measure */
+router.post('/', async (req, res, next) => {
+  try {
+    const measure = await Measure.create(req.body);
+    res.json(measure);
+  } catch(err) {
+    next(err);
+  }
+});
