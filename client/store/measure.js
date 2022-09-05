@@ -5,6 +5,7 @@ import axios from 'axios';
  */
 const GET_MEASURES = 'GET_MEASURES';
 const CREATE_MEASURE = 'CREATE_MEASURE';
+const DELETE_MEASURE = 'DELETE_MEASURE';
 
 /**
  * ACTION CREATORS
@@ -20,6 +21,13 @@ const _createMeasure = (measure) => {
   return {
     type: CREATE_MEASURE,
     measure
+  };
+};
+
+const _deleteMeasure = (id) => {
+  return {
+    type: DELETE_MEASURE,
+    id
   };
 };
 
@@ -42,6 +50,13 @@ export const createMeasure = (measure) => {
   };
 };
 
+export const deleteMeasure = (id) => {
+  return async (dispatch) => {
+    await axios.delete(`/api/measures/${id}`);
+    dispatch(_deleteMeasure(id));
+  };
+};
+
 /**
  * REDUCER
  */
@@ -51,6 +66,8 @@ export default function(state = [], action) {
       return action.measures;
     case CREATE_MEASURE:
       return [ ...state, action.measure ];
+    case DELETE_MEASURE:
+      return state.filter((measure) => measure.id !== action.id);
     default:
       return state;
   }

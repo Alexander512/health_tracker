@@ -31,3 +31,14 @@ router.post('/', async (req, res, next) => {
     next(err);
   }
 });
+
+/* DELETE a measure */
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const measure = await Measure.findByPk(req.params.id);
+    await measure.destroy();
+    res.sendStatus(204);
+  } catch(err) {
+    next(err);
+  }
+});
