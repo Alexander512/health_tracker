@@ -19,12 +19,12 @@ class Routes extends Component {
     return (
       <div>
         {isLoggedIn ? (
-          <Fragment>
+          <Switch>
             <Route path='/measures' component={ListMeasures} exact />
             <Route path='/measures/new' component={CreateMeasure} exact />
             <Route path='/measurements/:id' component={Measurements} exact />
-            <Redirect to='/measures' exact />
-          </Fragment>
+            <Redirect to='/measures' />
+          </Switch>
         ) : (
           <Switch>
             <Route path='/' component={Login} exact />
