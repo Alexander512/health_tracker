@@ -4,6 +4,7 @@ import {withRouter, Route, Switch, Redirect} from 'react-router-dom';
 import { Login, Signup } from './components/AuthForm';
 import ListMeasures from './components/ListMeasures.js';
 import CreateMeasure from './components/CreateMeasure.js';
+import EditMeasure from './components/EditMeasure.js';
 import Measurements from './components/Measurements.js';
 import {me} from './store';
 
@@ -22,6 +23,7 @@ class Routes extends Component {
           <Switch>
             <Route path='/measures' component={ListMeasures} exact />
             <Route path='/measures/new' component={CreateMeasure} exact />
+            <Route path='/measures/:id/edit' component={EditMeasure} exact />
             <Route path='/measurements/:id' component={Measurements} exact />
             <Redirect to='/measures' />
           </Switch>
