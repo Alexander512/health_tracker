@@ -28,7 +28,11 @@ const _createMeasurement = (measurement) => {
  */
 export const getMeasurements = () => {
   return async (dispatch) => {
-    const response = await axios.get('/api/measurements');
+    const response = await axios.get('/api/measurements', {
+      headers: {
+        authorization: window.localStorage.getItem('token')
+      }
+    });
     const measurements = response.data;
     dispatch(_getMeasurements(measurements));
   };
@@ -36,7 +40,11 @@ export const getMeasurements = () => {
 
 export const createMeasurement = (measurement) => {
   return async (dispatch) => {
-    const response = await axios.post('/api/measurements', measurement);
+    const response = await axios.post('/api/measurements', measurement, {
+      headers: {
+        authorization: window.localStorage.getItem('token')
+      }
+    });
     const newMeasurement = response.data;
     dispatch(_createMeasurement(newMeasurement));
   };

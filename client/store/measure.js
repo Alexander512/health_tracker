@@ -44,7 +44,11 @@ const _updateMeasure = (measure) => {
  */
 export const getMeasures = () => {
   return async (dispatch) => {
-    const response = await axios.get('/api/measures');
+    const response = await axios.get('/api/measures', {
+      headers: {
+        authorization: window.localStorage.getItem('token')
+      }
+    });
     const measures = response.data;
     dispatch(_getMeasures(measures));
   };
@@ -52,7 +56,11 @@ export const getMeasures = () => {
 
 export const createMeasure = (measure) => {
   return async (dispatch) => {
-    const response = await axios.post('/api/measures', measure);
+    const response = await axios.post('/api/measures', measure, {
+      headers: {
+        authorization: window.localStorage.getItem('token')
+      }
+    });
     const newMeasure = response.data;
     dispatch(_createMeasure(newMeasure));
   };
@@ -60,14 +68,22 @@ export const createMeasure = (measure) => {
 
 export const deleteMeasure = (id) => {
   return async (dispatch) => {
-    await axios.delete(`/api/measures/${id}`);
+    await axios.delete(`/api/measures/${id}`, {
+      headers: {
+        authorization: window.localStorage.getItem('token')
+      }
+    });
     dispatch(_deleteMeasure(id));
   };
 };
 
 export const updateMeasure = (measure) => {
   return async (dispatch) => {
-    const response = await axios.put(`/api/measures/${measure.id}`, measure);
+    const response = await axios.put(`/api/measures/${measure.id}`, measure, {
+      headers: {
+        authorization: window.localStorage.getItem('token')
+      }
+    });
     const updatedMeasure = response.data;
     dispatch(_updateMeasure(updatedMeasure));
   };
