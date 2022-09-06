@@ -1,29 +1,36 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../store';
 
 const Navbar = ({handleClick, isLoggedIn}) => (
-  <div>
-    <nav>
+  <nav>
+    <div id='flexContainerNav'>
       {isLoggedIn ? (
-        <div>
-          {/* The navbar will show these links after you log in */}
-          <Link to='/measures'>Biometric Measurements</Link>
-          <Link to='/measures/new'>Create New Measurement</Link>
-          <a href='#' onClick={handleClick}>
-            Logout
-          </a>
-        </div>
+        <Fragment>
+          <div className='flexItemNavLeft'>
+            {/* The navbar will show these links after you log in */}
+            <Link to='/measures'>Biometric Measurements</Link>
+            <Link to='/measures/new'>Create New Measurement</Link>
+          </div>
+          <div className='flexItemNavRight'>
+            <a href='#' onClick={handleClick}>
+              Logout
+            </a>
+          </div>
+        </Fragment>
       ) : (
-        <div>
-          {/* The navbar will show these links before you log in */}
-          <Link to='/login'>Login</Link>
-          <Link to='/signup'>Sign Up</Link>
-        </div>
+        <Fragment>
+          <div className='flexItemNavLeft'></div>
+          <div className='flexItemNavRight'>
+            {/* The navbar will show these links before you log in */}
+            <Link to='/login'>Login</Link>
+            <Link to='/signup'>Sign Up</Link>
+          </div>
+        </Fragment>
       )}
-    </nav>
-  </div>
+    </div>
+  </nav>
 )
 
 /**

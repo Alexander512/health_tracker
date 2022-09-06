@@ -9,25 +9,18 @@ const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="username">
-            <small>Username</small>
-          </label>
+    <div id='flexContainerAuth'>
+      <h1>The Health App</h1>
+      <div id='flexItemAuth'>
+        <form onSubmit={handleSubmit} name={name}>
+          <label htmlFor="username">Username</label>
           <input name="username" type="text" />
-        </div>
-        <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
-        </div>
-        <div>
+          <label htmlFor="password">Password</label>
+          <input name="password" type="password" /><br />
           <button type="submit">{displayName}</button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
-      </form>
+          {error && error.response && <div> {error.response.data} </div>}
+        </form>
+      </div>
     </div>
   )
 }

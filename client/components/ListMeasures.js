@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getMeasures, deleteMeasure } from '../store';
@@ -14,23 +14,25 @@ class ListMeasures extends Component {
   render() {
     const { filteredMeasures, deleteMeasure } = this.props;
     return (
-      <Fragment>
-        <h1>Measurements:</h1>
+      <div id='flexContainerMeasurements'>
+        <h1>Measurements</h1>
         <ul>
           {
             filteredMeasures.map((measure) => {
               return (
-                <li key={measure.id}>
-                  <strong>Measure:</strong> <Link to={`/measurements/${measure.id}`}>{measure.name}</Link>
-                  <strong>Unit:</strong> {measure.unit}
-                  <Link to={`/measures/${measure.id}/edit`}>Edit</Link>
-                  <button onClick={() => deleteMeasure(measure.id)}>Delete</button>
+                <li id='flexContainerList' key={measure.id}>
+                  <span id='flexItemList1'>
+                    <Link to={`/measurements/${measure.id}`}>{measure.name}</Link>
+                  </span>
+                  <span id='flexItemList2'><strong>unit:&nbsp;</strong>{measure.unit}</span>
+                  <span id='flexItemList3'><Link to={`/measures/${measure.id}/edit`}>edit</Link></span>
+                  <span id='flexItemList4'><button onClick={() => deleteMeasure(measure.id)}>delete</button></span>
                 </li>
               );
             })
           }
         </ul>
-      </Fragment>
+      </div>
     );
   }
 }

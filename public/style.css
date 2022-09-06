@@ -1,23 +1,169 @@
-body {
-  font-family: sans-serif;
+/* Health App */
+a {
+  color: blue;
+  font-weight: bold;
+  text-decoration: none;
 }
 
-a {
-  text-decoration: none;
+a:visited {
+  color: blue;
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+  font-size: clamp(1em, 0.75em + 0.5vw, 2em);
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  margin: 1vh 0 1vh 0;
 }
 
 label {
   display: block;
 }
 
-nav a {
-  display: inline-block;
-  margin: 1em;
+li {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 1vw;
 }
 
-form div {
-  margin: 1em;
-  display: inline-block;
+nav a {
+  margin: 1.5vh 1.5vw 1.5vh 1.5vw;
+}
+
+ul {
+  list-style-type: none;
+  margin: 1vh 1.5vw 1vh 1.5vw;
+  padding: 0;
+}
+
+#flexContainerAuth {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+#flexItemAuth {
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  height: 50vh;
+  justify-content: center;
+  min-width: 250px;
+  width: 40vw;
+}
+
+#flexContainerCreate {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+#flexItemCreate {
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  height: 50vh;
+  justify-content: center;
+  min-height: 300px;
+  min-width: 250px;
+  width: 40vw;
+}
+
+#flexItemCreate input {
+  min-width: 200px;
+}
+
+#flexContainerEdit {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+#flexItemEdit {
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  height: 50vh;
+  justify-content: center;
+  min-height: 300px;
+  min-width: 250px;
+  width: 40vw;
+}
+
+#flexItemEdit input {
+  min-width: 200px;
+}
+
+#flexContainerList {
+  display: flex;
+  margin: 1vh 0 0 0;
+}
+
+#flexItemList1 {
+  display: flex;
+  flex: 1 1 40%;
+}
+
+#flexItemList2 {
+  display: flex;
+  flex: 1 1 20%;
+}
+
+#flexItemList3 {
+  display: flex;
+  flex: 1 1 10%;
+}
+
+#flexItemList4 {
+  display: flex;
+  flex: 1 1 10%;
+}
+
+#flexContainerMeasurements {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: scroll;
+  width: 100vw;
+}
+
+#flexContainerMeasurements > h1 {
+  margin: 10vh 1.5vw 0 1.5vw;
+}
+
+#flexContainerNav {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.flexItemNavLeft {
+  display: flex;
+  flex-basis: 50%;
+  justify-content: flex-start;
+}
+
+.flexItemNavRight {
+  display: flex;
+  flex-basis: 50%;
+  justify-content: flex-end;
 }
 
 .vega-embed {
