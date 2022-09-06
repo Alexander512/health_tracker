@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getMeasures, updateMeasure } from '../store';
 
@@ -76,22 +76,24 @@ class EditMeasure extends Component {
     const { name, unit, lowerLimit, intermediateLimit, upperLimit } = this.state;
     const { handleChange, handleSubmit } = this;
     return (
-      <Fragment> 
-        <h1>Update a biometric measurement:</h1>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor='name'>Measurement name: </label><br />
-          <input name='name' type='text' value={name} onChange={handleChange} required /><br />
-          <label htmlFor='unit'>Measurement units: </label><br />
-          <input name='unit' type='text' value={unit} onChange={handleChange} required /><br />
-          <label htmlFor='upperLimit'>Upper limit: </label><br />
-          <input name='upperLimit' type='number' value={upperLimit} onChange={handleChange} /><br />
-          <label htmlFor='intermediateLimit'>Intermediate limit: </label><br />
-          <input name='intermediateLimit' type='number' value={intermediateLimit} onChange={handleChange} /><br />
-          <label htmlFor='lowerLimit'>Lower limit: </label><br />
-          <input name='lowerLimit' type='number' value={lowerLimit} onChange={handleChange} /><br />
-          <button>Submit</button>
-        </form>
-      </Fragment>
+      <div id='flexContainerEdit'> 
+        <h1>Update measurement</h1>
+        <div id='flexItemEdit'>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor='name'>Measurement name </label>
+            <input name='name' type='text' value={name} onChange={handleChange} required />
+            <label htmlFor='unit'>Measurement units </label>
+            <input name='unit' type='text' value={unit} onChange={handleChange} required />
+            <label htmlFor='upperLimit'>Upper limit </label>
+            <input name='upperLimit' type='number' value={upperLimit} onChange={handleChange} />
+            <label htmlFor='intermediateLimit'>Intermediate limit </label>
+            <input name='intermediateLimit' type='number' value={intermediateLimit} onChange={handleChange} />
+            <label htmlFor='lowerLimit'>Lower limit </label>
+            <input name='lowerLimit' type='number' value={lowerLimit} onChange={handleChange} /><br />
+            <button>Submit</button>
+          </form>
+        </div>
+      </div>
     );
   }
 }
