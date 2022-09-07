@@ -7,40 +7,25 @@ class EditMeasure extends Component {
     super(props);
     this.state = {
       name: '',
-      unit: '',
-      lowerLimit: '',
-      intermediateLimit: '',
-      upperLimit: ''
+      unit: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
     this.props.getMeasures();
-    let { name, unit, lowerLimit, intermediateLimit, upperLimit } = this.props.measure;
-    if (lowerLimit === null) lowerLimit = '';
-    if (intermediateLimit === null) intermediateLimit = '';
-    if (upperLimit === null) upperLimit = '';
+    let { name, unit } = this.props.measure;
     this.setState({ 
       name: name, 
-      unit: unit, 
-      lowerLimit: lowerLimit, 
-      intermediateLimit: intermediateLimit, 
-      upperLimit: upperLimit 
+      unit: unit
     });
   }
   componentDidUpdate(prevProps) {
     if (!prevProps.measure.id && this.props.measure.id) {
-      let { name, unit, lowerLimit, intermediateLimit, upperLimit } = this.props.measure;
-      if (lowerLimit === null) lowerLimit = '';
-      if (intermediateLimit === null) intermediateLimit = '';
-      if (upperLimit === null) upperLimit = '';
+      let { name, unit } = this.props.measure;
       this.setState({ 
         name: name, 
-        unit: unit, 
-        lowerLimit: lowerLimit, 
-        intermediateLimit: intermediateLimit, 
-        upperLimit: upperLimit 
+        unit: unit
       });
     }
   }
@@ -52,28 +37,13 @@ class EditMeasure extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const { measure } = this.props;
-    const { name, unit, lowerLimit, intermediateLimit, upperLimit } = this.state;
+    const { name, unit } = this.state;
     measure.name = name; 
     measure.unit = unit; 
-    if (lowerLimit === '') {
-      measure.lowerLimit = null;
-    } else {
-      measure.lowerLimit = lowerLimit;
-    }
-    if (intermediateLimit === '') {
-      measure.intermediateLimit = null;
-    } else {
-      measure.intermediateLimit = intermediateLimit;
-    }
-    if (upperLimit === '') {
-      measure.upperLimit = null;
-    } else {
-      measure.upperLimit = upperLimit;
-    }
     this.props.updateMeasure(measure);
   }
   render() {
-    const { name, unit, lowerLimit, intermediateLimit, upperLimit } = this.state;
+    const { name, unit } = this.state;
     const { handleChange, handleSubmit } = this;
     return (
       <div id='flexContainerEdit'> 
@@ -84,12 +54,6 @@ class EditMeasure extends Component {
             <input name='name' type='text' value={name} onChange={handleChange} required />
             <label htmlFor='unit'>Measurement units </label>
             <input name='unit' type='text' value={unit} onChange={handleChange} required />
-            <label htmlFor='upperLimit'>Upper limit </label>
-            <input name='upperLimit' type='number' value={upperLimit} onChange={handleChange} />
-            <label htmlFor='intermediateLimit'>Intermediate limit </label>
-            <input name='intermediateLimit' type='number' value={intermediateLimit} onChange={handleChange} />
-            <label htmlFor='lowerLimit'>Lower limit </label>
-            <input name='lowerLimit' type='number' value={lowerLimit} onChange={handleChange} /><br />
             <button>Submit</button>
           </form>
         </div>

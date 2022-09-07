@@ -7,10 +7,7 @@ class CreateMeasure extends Component {
     super(props);
     this.state = {
       name: '',
-      unit: '',
-      lowerLimit: '',
-      intermediateLimit: '',
-      upperLimit: ''
+      unit: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,28 +20,19 @@ class CreateMeasure extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const { auth } = this.props;
-    let { name, unit, lowerLimit, intermediateLimit, upperLimit } = this.state;
-    if (lowerLimit === '') lowerLimit = null;
-    if (intermediateLimit === '') intermediateLimit = null;
-    if (upperLimit === '') upperLimit = null;
+    let { name, unit } = this.state;
     this.props.createMeasure({ 
       name: name,
       unit: unit,
-      lowerLimit: lowerLimit,
-      intermediateLimit: intermediateLimit,
-      upperLimit: upperLimit,
       userId: auth.id
     }); 
     this.setState({
       name: '',
       unit: '',
-      lowerLimit: '',
-      intermediateLimit: '',
-      upperLimit: ''
     });
   }
   render() {
-    const { name, unit, lowerLimit, intermediateLimit, upperLimit } = this.state;
+    const { name, unit } = this.state;
     const { handleChange, handleSubmit } = this;
     return (
       <div id='flexContainerCreate'> 
@@ -55,12 +43,6 @@ class CreateMeasure extends Component {
             <input name='name' type='text' value={name} onChange={handleChange} required />
             <label htmlFor='unit'>Measurement units </label>
             <input name='unit' type='text' value={unit} onChange={handleChange} required />
-            <label htmlFor='upperLimit'>Add an upper limit </label>
-            <input name='upperLimit' type='number' value={upperLimit} onChange={handleChange} />
-            <label htmlFor='intermediateLimit'>Add an intermediate limit </label>
-            <input name='intermediateLimit' type='number' value={intermediateLimit} onChange={handleChange} />
-            <label htmlFor='lowerLimit'>Add a lower limit </label>
-            <input name='lowerLimit' type='number' value={lowerLimit} onChange={handleChange} /><br />
             <button>Submit</button>
           </form>
         </div>
