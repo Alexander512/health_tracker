@@ -8,7 +8,11 @@ const Measurement = db.define('measurement', {
     validate: {
       isFloat: true
     }
+  },
+  dateEntered: {
+    type: Sequelize.DATEONLY,
+    defaultValue: Sequelize.NOW
   }
-});
+}, { timestamps: false });
 
 module.exports = Measurement;
