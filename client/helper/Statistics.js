@@ -22,7 +22,8 @@ function mean(...values) {
   for (let i = 0; i < values.length; i++) {
     sum += values[i];
   }
-  return sum / values.length;
+  let meanValue = sum / values.length;
+  return meanValue;
 }
 
 module.exports = {
