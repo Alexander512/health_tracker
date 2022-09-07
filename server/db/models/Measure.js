@@ -15,15 +15,6 @@ const Measure= db.define('measure', {
     validate: {
       notEmpty: true
     }
-  },
-  lowerLimit: {
-    type: Sequelize.FLOAT
-  },
-  intermediateLimit: {
-    type: Sequelize.FLOAT
-  },
-  upperLimit: {
-    type: Sequelize.FLOAT
   }
 });
 
