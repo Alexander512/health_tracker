@@ -26,7 +26,7 @@ label {
 
 li {
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 1vw;
 }
 
@@ -52,12 +52,42 @@ ul {
 #flexItemAuth {
   align-items: center;
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 5px;
   display: flex;
   height: 50vh;
   justify-content: center;
   min-width: 250px;
   width: 40vw;
+}
+
+#flexContainerData {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+#flexContainerData > h1 {
+  margin: 10vh 1.5vw 0 1.5vw;
+}
+
+#flexContainerAnalytics {
+  display: flex;
+}
+
+#flexItemInput {
+  flex: 1 1 25%;
+  padding: 1vh 1.5vw 1vh 1.5vw;
+}
+
+#flexItemInput > button {
+  display: block;
+}
+
+#flexItemPlot {
+  display: flex;
+  flex: 1 1 75%;
+  justify-content: center;
 }
 
 #flexContainerCreate {
@@ -72,7 +102,7 @@ ul {
 #flexItemCreate {
   align-items: center;
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 5px;
   display: flex;
   height: 50vh;
   justify-content: center;
@@ -97,7 +127,7 @@ ul {
 #flexItemEdit {
   align-items: center;
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 5px;
   display: flex;
   height: 50vh;
   justify-content: center;
@@ -167,5 +197,18 @@ ul {
 }
 
 .vega-embed {
-  width: 75%;
+  width: 90%;
+}
+
+@media (max-width: 600px) {
+  #flexContainerAnalytics {
+    flex-direction: column;
+  }
+  #flexItemInput > label {
+    display: inline;
+  }
+  #flexItemInput > button {
+    display: inline;
+    margin-left: 1vw;
+  }
 }

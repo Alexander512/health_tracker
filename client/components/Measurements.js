@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getMeasures, getMeasurements, createMeasurement } from '../store';
 import TimeSeriesVis from './TimeSeriesVis.js';
@@ -29,19 +29,23 @@ class Measurements extends Component {
     this.setState({ measurementValue: '' });
   }
   render() {
-    const { filteredMeasurements } = this.props;
+    const { measure, filteredMeasurements } = this.props;
     const { measurementValue } = this.state;
     const { handleChange, handleSubmit } = this;
     return (
-      <Fragment>
-        <h1>Measurements:</h1>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor='measurementValue'>Enter measurement: </label>
-          <input name='measurementValue' type='number' value={measurementValue} onChange={handleChange} required />
-          <button>Submit</button>
-        </form>
-        <TimeSeriesVis measurements={filteredMeasurements} />
-      </Fragment>
+      <div id='flexContainerData'>
+        <h1>Measurements</h1>
+        <div id='flexContainerAnalytics'>
+          <form id='flexItemInput' onSubmit={handleSubmit}>
+            <label htmlFor='measurementValue'>Enter value </label>
+            <input name='measurementValue' type='number' value={measurementValue} onChange={handleChange} required />
+            <button>Submit</button>
+          </form>
+          <div id='flexItemPlot'>
+            <TimeSeriesVis measure={measure} measurements={filteredMeasurements} />
+          </div>
+        </div>
+      </div>
     );
   }
 }
