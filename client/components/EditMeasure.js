@@ -14,7 +14,7 @@ class EditMeasure extends Component {
   }
   componentDidMount() {
     this.props.getMeasures();
-    let { name, unit } = this.props.measure;
+    const { name, unit } = this.props.measure;
     this.setState({ 
       name: name, 
       unit: unit
@@ -22,7 +22,7 @@ class EditMeasure extends Component {
   }
   componentDidUpdate(prevProps) {
     if (!prevProps.measure.id && this.props.measure.id) {
-      let { name, unit } = this.props.measure;
+      const { name, unit } = this.props.measure;
       this.setState({ 
         name: name, 
         unit: unit
@@ -64,7 +64,7 @@ class EditMeasure extends Component {
 
 const mapStateToProps = ({ measures }, otherParams) => {
   const id = otherParams.match.params.id;
-  const measure = measures.find((measure) => measure.id === Number(id)) || {};
+  const measure = measures.find((measure) => measure.id === Number(id)) || { name: '', unit: '' };
   return {
     measure
   };
