@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getMeasures, getMeasurements, createMeasurement } from '../store';
+import DescriptiveStatistics from './DescriptiveStatistics.js';
 import TimeSeriesVis from './TimeSeriesVis.js';
 
 class Measurements extends Component {
@@ -43,6 +44,7 @@ class Measurements extends Component {
           </form>
           <div id='flexItemPlot'>
             <TimeSeriesVis measure={measure} measurements={filteredMeasurements} />
+            <DescriptiveStatistics measurements={filteredMeasurements} />
           </div>
         </div>
       </div>

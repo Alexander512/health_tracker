@@ -87,6 +87,7 @@ ul {
 #flexItemPlot {
   display: flex;
   flex: 1 1 75%;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -182,6 +183,16 @@ ul {
   position: fixed;
   top: 0;
   width: 100%;
+}
+
+#flexContainerStatistics {
+  display: flex;
+}
+
+.flexItemStatistics {
+  display: flex;
+  flex: 1 1 33%;
+  justify-content: center;
 }
 
 .flexItemNavLeft {

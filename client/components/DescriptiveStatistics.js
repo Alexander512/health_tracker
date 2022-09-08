@@ -4,23 +4,28 @@ import arrayOfValues from '../helper/arrayOfValues.js';
 import { minimum, maximum, mean } from '../helper/Statistics.js';
 
 const DescriptiveStatistics = ({ measurements }) => {
-console.log(measurements);
+
   const filterDate = startDate();
-console.log(filterDate);
   const dataset = arrayOfValues(measurements, filterDate);
-console.log(dataset);
+
+  const minValue = minimum(...dataset);
+  const maxValue = maximum(...dataset);
+  const meanValue = mean(...dataset);
+
   return (
-    <div>
-      <h2>Descriptive Statistics</h2>
-      <ul>
-        {
-          dataset.map((data, index) => {
-            return (
-              <li key={index}>{data}</li>
-            );
-          })
-        }
-      </ul>
+    <div id='flexContainerStatistics'>
+      <span className='flexItemStatistics'>
+        <strong>Minimum:&nbsp;</strong> 
+        {minValue !== Infinity ? minValue.toFixed(2) : 'no data'}
+      </span>
+      <span className='flexItemStatistics'>
+        <strong>Maximum:&nbsp;</strong> 
+        {maxValue !== -Infinity ? maxValue.toFixed(2) : 'no data'}
+      </span>
+      <span className='flexItemStatistics'>
+        <strong>Mean:&nbsp;</strong> 
+        {!Number.isNaN(meanValue) ? meanValue.toFixed(2) : 'no data'}
+      </span>
     </div> 
   );
 };
