@@ -54,7 +54,7 @@ export const getMeasures = () => {
   };
 };
 
-export const createMeasure = (measure) => {
+export const createMeasure = (measure, history) => {
   return async (dispatch) => {
     const response = await axios.post('/api/measures', measure, {
       headers: {
@@ -63,6 +63,7 @@ export const createMeasure = (measure) => {
     });
     const newMeasure = response.data;
     dispatch(_createMeasure(newMeasure));
+    history.push('/measures');
   };
 };
 
@@ -77,7 +78,7 @@ export const deleteMeasure = (id) => {
   };
 };
 
-export const updateMeasure = (measure) => {
+export const updateMeasure = (measure, history) => {
   return async (dispatch) => {
     const response = await axios.put(`/api/measures/${measure.id}`, measure, {
       headers: {
@@ -86,6 +87,7 @@ export const updateMeasure = (measure) => {
     });
     const updatedMeasure = response.data;
     dispatch(_updateMeasure(updatedMeasure));
+    history.push('/measures');
   };
 };
 

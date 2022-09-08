@@ -39,7 +39,15 @@ class Measurements extends Component {
         <div id='flexContainerAnalytics'>
           <form id='flexItemInput' onSubmit={handleSubmit}>
             <label htmlFor='measurementValue'>Enter value </label>
-            <input name='measurementValue' type='number' value={measurementValue} onChange={handleChange} required />
+            <input 
+              name='measurementValue' 
+              type='number' 
+              min='0.0' 
+              step='0.1' 
+              value={measurementValue} 
+              onChange={handleChange} 
+              required 
+            />
             <button>Submit</button>
           </form>
           <div id='flexItemPlot'>

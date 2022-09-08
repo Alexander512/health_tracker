@@ -70,13 +70,13 @@ const mapStateToProps = ({ measures }, otherParams) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, { history }) => {
   return {
     getMeasures: () => {
       dispatch(getMeasures());
     },
     updateMeasure: (measure) => {
-      dispatch(updateMeasure(measure));
+      dispatch(updateMeasure(measure, history));
     }
   };
 };
