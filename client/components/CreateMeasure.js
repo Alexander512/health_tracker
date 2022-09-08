@@ -57,10 +57,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, { history }) => {
   return {
     createMeasure: (measure) => {
-      dispatch(createMeasure(measure));
+      dispatch(createMeasure(measure, history));
     }
   };
 };
