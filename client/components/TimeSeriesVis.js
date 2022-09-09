@@ -22,7 +22,7 @@ const TimeSeriesVis = ({ measure, measurements }) => {
         field: 'dateEntered', 
         type: 'temporal',
         title: 'date',
-        scale: { type: 'utc', nice: 'day', domain: [ startDateScale, endDateScale ] },
+        scale: { type: 'utc', nice: 'day', domain: [ startDateScale, endDateScale ], padding: 10 },
         axis: { grid: true, tickCount: { interval: 'day', step: 1 } }
       },
       y: { 
@@ -31,7 +31,7 @@ const TimeSeriesVis = ({ measure, measurements }) => {
         title: `value (${measure.unit})`,
         scale: { padding: 100 }
       },
-      color: { value: 'blue' },
+      color: { value: '#00008B' },
       size: { value: 50},
       tooltip: [
         { field: 'value', type: 'quantitative' },

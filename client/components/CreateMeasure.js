@@ -36,12 +36,12 @@ class CreateMeasure extends Component {
     const { handleChange, handleSubmit } = this;
     return (
       <div id='flexContainerCreate'> 
-        <h1>New measurement</h1>
+        <h1>New Measurement</h1>
         <div id='flexItemCreate'>
           <form onSubmit={handleSubmit}>
-            <label htmlFor='name'>Measurement name </label>
+            <label htmlFor='name'>measurement name </label>
             <input name='name' type='text' value={name} onChange={handleChange} required />
-            <label htmlFor='unit'>Measurement units </label>
+            <label htmlFor='unit'>measurement units </label>
             <input name='unit' type='text' value={unit} onChange={handleChange} required />
             <button>Submit</button>
           </form>

@@ -10,8 +10,8 @@ const Navbar = ({handleClick, isLoggedIn}) => (
         <Fragment>
           <div className='flexItemNavLeft'>
             {/* The navbar will show these links after you log in */}
-            <Link to='/measures'>Biometric Measurements</Link>
-            <Link to='/measures/new'>Create New Measurement</Link>
+            <Link to='/measures'>Measurements</Link>
+            <Link to='/measures/new'>New Measurement</Link>
           </div>
           <div className='flexItemNavRight'>
             <a href='#' onClick={handleClick}>
@@ -24,7 +24,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           <div className='flexItemNavLeft'></div>
           <div className='flexItemNavRight'>
             {/* The navbar will show these links before you log in */}
-            <Link to='/login'>Login</Link>
+            <Link to='/login'>Sign In</Link>
             <Link to='/signup'>Sign Up</Link>
           </div>
         </Fragment>

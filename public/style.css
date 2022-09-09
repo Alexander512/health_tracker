@@ -1,12 +1,12 @@
 /* Health App */
 a {
-  color: blue;
+  color: lightgrey;
   font-weight: bold;
   text-decoration: none;
 }
 
 a:visited {
-  color: blue;
+  color: lightgrey;
 }
 
 body {
@@ -29,8 +29,9 @@ label {
 }
 
 li {
-  border: 1px solid black;
+  background-color: #00008B;
   border-radius: 5px;
+  color: white;
   padding: 1vw;
 }
 
@@ -45,23 +46,31 @@ ul {
 }
 
 #flexContainerAuth {
-  align-items: center;
+  align-items: flex-start;
+  background-image: url('/images/weight-lifting-photo-1.jpg');
+  background-position: 50% 70%;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100vw;
 }
 
 #flexItemAuth {
   align-items: center;
-  border: 1px solid black;
+  background-color: #00008B;
   border-radius: 5px;
+  color: white;
   display: flex;
-  height: 50vh;
+  flex-direction: column;
+  height: 45vh;
   justify-content: center;
+  margin-block-start: 10vh;
+  margin-inline-start: 10vw;
+  min-height: 300px;
   min-width: 250px;
-  width: 40vw;
+  width: 30vw;
 }
 
 #flexContainerData {
@@ -85,10 +94,10 @@ ul {
 }
 
 #flexItemPlot {
+  align-items: center;
   display: flex;
   flex: 1 1 75%;
   flex-direction: column;
-  justify-content: center;
 }
 
 #flexContainerCreate {
@@ -102,8 +111,9 @@ ul {
 
 #flexItemCreate {
   align-items: center;
-  border: 1px solid black;
+  background-color: #00008B;
   border-radius: 5px;
+  color: white;
   display: flex;
   height: 50vh;
   justify-content: center;
@@ -127,8 +137,9 @@ ul {
 
 #flexItemEdit {
   align-items: center;
-  border: 1px solid black;
+  background-color: #00008B;
   border-radius: 5px;
+  color: white;
   display: flex;
   height: 50vh;
   justify-content: center;
@@ -179,6 +190,7 @@ ul {
 }
 
 #flexContainerNav {
+  background-color: #00008B;
   display: flex;
   position: fixed;
   top: 0;
@@ -186,7 +198,11 @@ ul {
 }
 
 #flexContainerStatistics {
+  background-color: #00008B;
+  border-radius: 5px;
+  color: white;
   display: flex;
+  width: 90%;
 }
 
 .flexItemStatistics {

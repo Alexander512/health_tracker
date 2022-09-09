@@ -2,6 +2,7 @@ node_modules
 planning
 public/bundle.js
 public/bundle.js.map
+public/images/note.txt
 .DS_Store
 npm-debug.log
 yarn-error.log
