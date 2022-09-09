@@ -15,15 +15,15 @@ const DescriptiveStatistics = ({ measurements }) => {
   return (
     <div id='flexContainerStatistics'>
       <span className='flexItemStatistics'>
-        <strong>Minimum:&nbsp;</strong> 
+        <strong>minimum:&nbsp;</strong> 
         {minValue !== Infinity ? minValue.toFixed(2) : 'no data'}
       </span>
       <span className='flexItemStatistics'>
-        <strong>Maximum:&nbsp;</strong> 
+        <strong>maximum:&nbsp;</strong> 
         {maxValue !== -Infinity ? maxValue.toFixed(2) : 'no data'}
       </span>
       <span className='flexItemStatistics'>
-        <strong>Mean:&nbsp;</strong> 
+        <strong>mean:&nbsp;</strong> 
         {!Number.isNaN(meanValue) ? meanValue.toFixed(2) : 'no data'}
       </span>
     </div> 

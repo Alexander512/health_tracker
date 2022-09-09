@@ -15,7 +15,7 @@ class ListMeasures extends Component {
     const { filteredMeasures, deleteMeasure } = this.props;
     return (
       <div id='flexContainerMeasurements'>
-        <h1>Measurements</h1>
+        <h1>Tracked Measurements</h1>
         <ul>
           {
             filteredMeasures.map((measure) => {

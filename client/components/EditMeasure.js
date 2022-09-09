@@ -47,12 +47,12 @@ class EditMeasure extends Component {
     const { handleChange, handleSubmit } = this;
     return (
       <div id='flexContainerEdit'> 
-        <h1>Update measurement</h1>
+        <h1>Update Measurement</h1>
         <div id='flexItemEdit'>
           <form onSubmit={handleSubmit}>
-            <label htmlFor='name'>Measurement name </label>
+            <label htmlFor='name'>measurement name </label>
             <input name='name' type='text' value={name} onChange={handleChange} required />
-            <label htmlFor='unit'>Measurement units </label>
+            <label htmlFor='unit'>measurement units </label>
             <input name='unit' type='text' value={unit} onChange={handleChange} required />
             <button>Submit</button>
           </form>

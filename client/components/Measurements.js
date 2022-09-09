@@ -38,7 +38,7 @@ class Measurements extends Component {
         <h1>Measurements</h1>
         <div id='flexContainerAnalytics'>
           <form id='flexItemInput' onSubmit={handleSubmit}>
-            <label htmlFor='measurementValue'>Enter value </label>
+            <label htmlFor='measurementValue'>enter value </label>
             <input 
               name='measurementValue' 
               type='number' 
