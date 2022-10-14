@@ -1,5 +1,5 @@
 {
-  "name": "fs-app-template",
+  "name": "health_db",
   "version": "2.0.0",
   "description": "Some boilerplate code to get you started - get shakin'!",
   "main": "index.js",
@@ -33,6 +33,7 @@
     "axios": "^0.27.2",
     "babel-loader": "^8.2.5",
     "chai": "^4.3.6",
+    "dotenv": "^16.0.3",
     "mocha": "^10.0.0",
     "nodemon": "^2.0.19",
     "react": "^18.2.0",
