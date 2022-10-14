@@ -29,7 +29,7 @@ const TimeSeriesVis = ({ measure, measurements }) => {
         field: 'value', 
         type: 'quantitative', 
         title: `value (${measure.unit})`,
-        scale: { padding: 100 }
+        scale: { padding: 100, zero: false }
       },
       color: { value: '#00008B' },
       size: { value: 50},
